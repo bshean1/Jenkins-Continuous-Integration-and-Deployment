@@ -12,6 +12,20 @@ pipeline {
             steps {
                 echo "Stage 2: Unit and Integration Tests - Running unit tests and integration tests with JUnit and Selenium"
             }
+            post {
+                success {
+                    echo "Security Scan was successful."
+                    mail to: 'braeden.shean@gmail.com',
+                        subject: 'Build Status Email',
+                        body: 'Unit and Integration tests were successful!'
+                }
+                failure {
+                    echo "Security Scan failed."
+                    mail to: 'braeden.shean@gmail.com',
+                        subject: 'Build Status Email',
+                        body: 'Unit and Integration tests failed!'
+                }
+            }
         }
 
         stage('Code Analysis') {
@@ -23,6 +37,20 @@ pipeline {
         stage('Security Scan') {
             steps {
                 echo "Stage 4: Security Scan - Performing security scan with OWASP ZAP"
+            }
+            post {
+                success {
+                    echo "Security Scan was successful."
+                    mail to: 'braeden.shean@gmail.com',
+                        subject: 'Build Status Email',
+                        body: 'Security scan was successful!'
+                }
+                failure {
+                    echo "Security Scan failed."
+                    mail to: 'braeden.shean@gmail.com',
+                        subject: 'Build Status Email',
+                        body: 'Security scan failed!'
+                }
             }
         }
 
@@ -44,13 +72,3 @@ pipeline {
             }
         }
     }
-
-    post {
-        success {
-            echo "Pipeline was successful."
-        }
-        failure {
-            echo "Pipeline failed."
-        }
-    }
-}
