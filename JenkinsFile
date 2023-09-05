@@ -17,7 +17,7 @@ pipeline {
                     echo "Unit and Integration tests were successful."
                     mail to: 'braeden.shean@gmail.com',
                         subject: 'Build Status Email',
-                        body: 'Unit and Integration tests were successful!',
+                        body: 'Unit and Integration tests were successful!'
                 }
                 failure {
                     echo "Unit and Integration tests failed."
