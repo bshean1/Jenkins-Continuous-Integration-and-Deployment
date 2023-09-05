@@ -18,7 +18,6 @@ pipeline {
                     mail to: 'braeden.shean@gmail.com',
                         subject: 'Build Status Email',
                         body: 'Unit and Integration tests were successful!',
-                        attachBuildLog: true
                 }
                 failure {
                     echo "Unit and Integration tests failed."
