@@ -14,18 +14,16 @@ pipeline {
             }
             post {
                 success {
-                    echo "Security Scan was successful."
+                    echo "Unit and Integration tests were successful."
                     mail to: 'braeden.shean@gmail.com',
                         subject: 'Build Status Email',
-                        body: 'Unit and Integration tests were successful!',
-                        attachLog: true
+                        body: 'Unit and Integration tests were successful!'
                 }
                 failure {
-                    echo "Security Scan failed."
+                    echo "Unit and Integration tests failed."
                     mail to: 'braeden.shean@gmail.com',
                         subject: 'Build Status Email',
-                        body: 'Unit and Integration tests failed!',
-                        attachLog: true
+                        body: 'Unit and Integration tests failed!'
                 }
             }
         }
@@ -45,15 +43,13 @@ pipeline {
                     echo "Security Scan was successful."
                     mail to: 'braeden.shean@gmail.com',
                         subject: 'Build Status Email',
-                        body: 'Security scan was successful!',
-                        attachLog: true
+                        body: 'Security scan was successful!'
                 }
                 failure {
                     echo "Security Scan failed."
                     mail to: 'braeden.shean@gmail.com',
                         subject: 'Build Status Email',
-                        body: 'Security scan failed!',
-                        attachLog: true
+                        body: 'Security scan failed!'
                 }
             }
         }
